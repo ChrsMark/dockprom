@@ -26,6 +26,8 @@ services:
     restart: unless-stopped
     expose:
       - 9090
+    ports:
+      - "9090:9090"
     networks:
       - monitor-net
     labels:
@@ -66,6 +68,849 @@ services:
       - monitor-net
     labels:
       org.label-schema.group: "monitoring"
+
+#  nodeexporter2:
+#    image: prom/node-exporter:v0.18.1
+#    container_name: nodeexporter2
+#    volumes:
+#      - /proc:/host/proc:ro
+#      - /sys:/host/sys:ro
+#      - /:/rootfs:ro
+#    command:
+#      - '--path.procfs=/host/proc'
+#      - '--path.rootfs=/rootfs'
+#      - '--path.sysfs=/host/sys'
+#      - '--collector.filesystem.ignored-mount-points=^/(sys|proc|dev|host|etc)($$|/)'
+#    restart: unless-stopped
+#    ports:
+#      - 9102:9100
+#    networks:
+#      - monitor-net
+#    labels:
+#      org.label-schema.group: "monitoring"
+#
+#  nodeexporter3:
+#    image: prom/node-exporter:v0.18.1
+#    container_name: nodeexporter3
+#    volumes:
+#      - /proc:/host/proc:ro
+#      - /sys:/host/sys:ro
+#      - /:/rootfs:ro
+#    command:
+#      - '--path.procfs=/host/proc'
+##      - '--path.rootfs=/rootfs'
+#      - '--path.sysfs=/host/sys'
+#      - '--collector.filesystem.ignored-mount-points=^/(sys|proc|dev|host|etc)($$|/)'
+#    restart: unless-stopped
+#    ports:
+#      - 9103:9100
+#    networks:
+#      - monitor-net
+#    labels:
+#      org.label-schema.group: "monitoring"
+#
+#  nodeexporte4:
+#    image: prom/node-exporter:v0.18.1
+#    container_name: nodeexporter4
+#    volumes:
+#      - /proc:/host/proc:ro
+#      - /sys:/host/sys:ro
+#      - /:/rootfs:ro
+#    command:
+#      - '--path.procfs=/host/proc'
+#      - '--path.rootfs=/rootfs'
+#      - '--path.sysfs=/host/sys'
+#      - '--collector.filesystem.ignored-mount-points=^/(sys|proc|dev|host|etc)($$|/)'
+#    restart: unless-stopped
+#    ports:
+#      - 9104:9100
+#    networks:
+#      - monitor-net
+#    labels:
+#      org.label-schema.group: "monitoring"
+#
+#  nodeexporter5:
+#    image: prom/node-exporter:v0.18.1
+#    container_name: nodeexporter5
+#    volumes:
+#      - /proc:/host/proc:ro
+#      - /sys:/host/sys:ro
+#      - /:/rootfs:ro
+#    command:
+#      - '--path.procfs=/host/proc'
+#      - '--path.rootfs=/rootfs'
+#      - '--path.sysfs=/host/sys'
+#      - '--collector.filesystem.ignored-mount-points=^/(sys|proc|dev|host|etc)($$|/)'
+#    restart: unless-stopped
+#    ports:
+#      - 9105:9100
+#    networks:
+#      - monitor-net
+#    labels:
+#      org.label-schema.group: "monitoring"
+#
+#  nodeexporter6:
+#    image: prom/node-exporter:v0.18.1
+#    container_name: nodeexporter6
+#    volumes:
+#      - /proc:/host/proc:ro
+#      - /sys:/host/sys:ro
+#      - /:/rootfs:ro
+#    command:
+#      - '--path.procfs=/host/proc'
+#      - '--path.rootfs=/rootfs'
+#      - '--path.sysfs=/host/sys'
+#      - '--collector.filesystem.ignored-mount-points=^/(sys|proc|dev|host|etc)($$|/)'
+#    restart: unless-stopped
+#    ports:
+#      - 9106:9100
+#    networks:
+#      - monitor-net
+#    labels:
+#      org.label-schema.group: "monitoring"
+#
+#  nodeexporter7:
+#    image: prom/node-exporter:v0.18.1
+#    container_name: nodeexporter7
+#    volumes:
+#      - /proc:/host/proc:ro
+#      - /sys:/host/sys:ro
+#      - /:/rootfs:ro
+#    command:
+#      - '--path.procfs=/host/proc'
+#      - '--path.rootfs=/rootfs'
+#      - '--path.sysfs=/host/sys'
+#      - '--collector.filesystem.ignored-mount-points=^/(sys|proc|dev|host|etc)($$|/)'
+#    restart: unless-stopped
+#    ports:
+#      - 9107:9100
+#    networks:
+#      - monitor-net
+#    labels:
+#      org.label-schema.group: "monitoring"
+#
+#  nodeexporter8:
+#    image: prom/node-exporter:v0.18.1
+#    container_name: nodeexporter8
+#    volumes:
+#      - /proc:/host/proc:ro
+#      - /sys:/host/sys:ro
+#      - /:/rootfs:ro
+#    command:
+#      - '--path.procfs=/host/proc'
+#      - '--path.rootfs=/rootfs'
+#      - '--path.sysfs=/host/sys'
+#      - '--collector.filesystem.ignored-mount-points=^/(sys|proc|dev|host|etc)($$|/)'
+#    restart: unless-stopped
+#    ports:
+#      - 9108:9100
+#    networks:
+#      - monitor-net
+#    labels:
+#      org.label-schema.group: "monitoring"
+#
+#
+#  nodeexporter9:
+#    image: prom/node-exporter:v0.18.1
+#    container_name: nodeexporter9
+#    volumes:
+#      - /proc:/host/proc:ro
+#      - /sys:/host/sys:ro
+#      - /:/rootfs:ro
+#    command:
+#      - '--path.procfs=/host/proc'
+#      - '--path.rootfs=/rootfs'
+#      - '--path.sysfs=/host/sys'
+#      - '--collector.filesystem.ignored-mount-points=^/(sys|proc|dev|host|etc)($$|/)'
+#    restart: unless-stopped
+#    ports:
+#      - 9109:9100
+#    networks:
+#      - monitor-net
+#    labels:
+#      org.label-schema.group: "monitoring"
+#
+#
+#  nodeexporter10:
+#    image: prom/node-exporter:v0.18.1
+#    container_name: nodeexporter10
+#    volumes:
+#      - /proc:/host/proc:ro
+#      - /sys:/host/sys:ro
+#      - /:/rootfs:ro
+#    command:
+#      - '--path.procfs=/host/proc'
+#      - '--path.rootfs=/rootfs'
+#      - '--path.sysfs=/host/sys'
+#      - '--collector.filesystem.ignored-mount-points=^/(sys|proc|dev|host|etc)($$|/)'
+#    restart: unless-stopped
+#    ports:
+#      - 9110:9100
+#    networks:
+#      - monitor-net
+#    labels:
+#      org.label-schema.group: "monitoring"
+#
+#
+#  nodeexporter11:
+#    image: prom/node-exporter:v0.18.1
+#    container_name: nodeexporter11
+#    volumes:
+#      - /proc:/host/proc:ro
+#      - /sys:/host/sys:ro
+#      - /:/rootfs:ro
+#    command:
+#      - '--path.procfs=/host/proc'
+#      - '--path.rootfs=/rootfs'
+#      - '--path.sysfs=/host/sys'
+#      - '--collector.filesystem.ignored-mount-points=^/(sys|proc|dev|host|etc)($$|/)'
+#    restart: unless-stopped
+#    ports:
+#      - 9111:9100
+#    networks:
+#      - monitor-net
+#    labels:
+#      org.label-schema.group: "monitoring"
+#
+#  nodeexporter12:
+#    image: prom/node-exporter:v0.18.1
+#    container_name: nodeexporter12
+#    volumes:
+#      - /proc:/host/proc:ro
+#      - /sys:/host/sys:ro
+#      - /:/rootfs:ro
+#    command:
+#      - '--path.procfs=/host/proc'
+#      - '--path.rootfs=/rootfs'
+#      - '--path.sysfs=/host/sys'
+#      - '--collector.filesystem.ignored-mount-points=^/(sys|proc|dev|host|etc)($$|/)'
+#    restart: unless-stopped
+#    ports:
+#      - 9112:9100
+#    networks:
+#      - monitor-net
+#    labels:
+#      org.label-schema.group: "monitoring"
+#
+#  nodeexporter13:
+#    image: prom/node-exporter:v0.18.1
+#    container_name: nodeexporter13
+#    volumes:
+#      - /proc:/host/proc:ro
+#      - /sys:/host/sys:ro
+#      - /:/rootfs:ro
+#    command:
+#      - '--path.procfs=/host/proc'
+#      - '--path.rootfs=/rootfs'
+#      - '--path.sysfs=/host/sys'
+#      - '--collector.filesystem.ignored-mount-points=^/(sys|proc|dev|host|etc)($$|/)'
+#    restart: unless-stopped
+#    ports:
+#      - 9113:9100
+#    networks:
+#      - monitor-net
+#    labels:
+#      org.label-schema.group: "monitoring"
+#
+#
+#  nodeexporter14:
+#    image: prom/node-exporter:v0.18.1
+#    container_name: nodeexporter14
+#    volumes:
+#      - /proc:/host/proc:ro
+#      - /sys:/host/sys:ro
+#      - /:/rootfs:ro
+#    command:
+#      - '--path.procfs=/host/proc'
+#      - '--path.rootfs=/rootfs'
+#      - '--path.sysfs=/host/sys'
+#      - '--collector.filesystem.ignored-mount-points=^/(sys|proc|dev|host|etc)($$|/)'
+#    restart: unless-stopped
+#    ports:
+#      - 9114:9100
+#    networks:
+#      - monitor-net
+#    labels:
+#      org.label-schema.group: "monitoring"
+#
+#  nodeexporter15:
+#    image: prom/node-exporter:v0.18.1
+#    container_name: nodeexporter15
+#    volumes:
+#      - /proc:/host/proc:ro
+#      - /sys:/host/sys:ro
+#      - /:/rootfs:ro
+#    command:
+#      - '--path.procfs=/host/proc'
+#      - '--path.rootfs=/rootfs'
+#      - '--path.sysfs=/host/sys'
+#      - '--collector.filesystem.ignored-mount-points=^/(sys|proc|dev|host|etc)($$|/)'
+#    restart: unless-stopped
+#    ports:
+#      - 9115:9100
+#    networks:
+#      - monitor-net
+#    labels:
+#      org.label-schema.group: "monitoring"
+#
+#  nodeexporter16:
+#    image: prom/node-exporter:v0.18.1
+#    container_name: nodeexporter16
+#    volumes:
+#      - /proc:/host/proc:ro
+#      - /sys:/host/sys:ro
+#      - /:/rootfs:ro
+#    command:
+#      - '--path.procfs=/host/proc'
+#      - '--path.rootfs=/rootfs'
+#      - '--path.sysfs=/host/sys'
+#      - '--collector.filesystem.ignored-mount-points=^/(sys|proc|dev|host|etc)($$|/)'
+#    restart: unless-stopped
+#    ports:
+#      - 9116:9100
+#    networks:
+#      - monitor-net
+#    labels:
+#      org.label-schema.group: "monitoring"
+#
+#  nodeexporter17:
+#    image: prom/node-exporter:v0.18.1
+#    container_name: nodeexporter17
+#    volumes:
+#      - /proc:/host/proc:ro
+#      - /sys:/host/sys:ro
+#      - /:/rootfs:ro
+#    command:
+#      - '--path.procfs=/host/proc'
+#      - '--path.rootfs=/rootfs'
+#      - '--path.sysfs=/host/sys'
+#      - '--collector.filesystem.ignored-mount-points=^/(sys|proc|dev|host|etc)($$|/)'
+#    restart: unless-stopped
+#    ports:
+#      - 9117:9100
+#    networks:
+#      - monitor-net
+#    labels:
+#      org.label-schema.group: "monitoring"
+#
+#
+#  nodeexporter18:
+#    image: prom/node-exporter:v0.18.1
+#    container_name: nodeexporter18
+#    volumes:
+#      - /proc:/host/proc:ro
+#      - /sys:/host/sys:ro
+#      - /:/rootfs:ro
+#    command:
+#      - '--path.procfs=/host/proc'
+#      - '--path.rootfs=/rootfs'
+#      - '--path.sysfs=/host/sys'
+#      - '--collector.filesystem.ignored-mount-points=^/(sys|proc|dev|host|etc)($$|/)'
+#    restart: unless-stopped
+#    ports:
+#      - 9118:9100
+#    networks:
+#      - monitor-net
+#    labels:
+#      org.label-schema.group: "monitoring"
+#
+#
+#  nodeexporter19:
+#    image: prom/node-exporter:v0.18.1
+#    container_name: nodeexporter19
+#    volumes:
+#      - /proc:/host/proc:ro
+#      - /sys:/host/sys:ro
+#      - /:/rootfs:ro
+#    command:
+#      - '--path.procfs=/host/proc'
+#      - '--path.rootfs=/rootfs'
+#      - '--path.sysfs=/host/sys'
+#      - '--collector.filesystem.ignored-mount-points=^/(sys|proc|dev|host|etc)($$|/)'
+#    restart: unless-stopped
+#    ports:
+#      - 9119:9100
+#    networks:
+#      - monitor-net
+#    labels:
+#      org.label-schema.group: "monitoring"
+#
+#  nodeexporter20:
+#    image: prom/node-exporter:v0.18.1
+#    container_name: nodeexporter20
+#    volumes:
+#      - /proc:/host/proc:ro
+#      - /sys:/host/sys:ro
+#      - /:/rootfs:ro
+#    command:
+#      - '--path.procfs=/host/proc'
+#      - '--path.rootfs=/rootfs'
+#      - '--path.sysfs=/host/sys'
+#      - '--collector.filesystem.ignored-mount-points=^/(sys|proc|dev|host|etc)($$|/)'
+#    restart: unless-stopped
+#    ports:
+#      - 9120:9100
+#    networks:
+#      - monitor-net
+#    labels:
+#      org.label-schema.group: "monitoring"
+#
+#  nodeexporter21:
+#    image: prom/node-exporter:v0.18.1
+#    container_name: nodeexporter21
+#    volumes:
+#      - /proc:/host/proc:ro
+#      - /sys:/host/sys:ro
+#      - /:/rootfs:ro
+#    command:
+#      - '--path.procfs=/host/proc'
+#      - '--path.rootfs=/rootfs'
+#      - '--path.sysfs=/host/sys'
+#      - '--collector.filesystem.ignored-mount-points=^/(sys|proc|dev|host|etc)($$|/)'
+#    restart: unless-stopped
+#    ports:
+#      - 9121:9100
+#    networks:
+#      - monitor-net
+#    labels:
+#      org.label-schema.group: "monitoring"
+#
+#
+#  nodeexporter22:
+#    image: prom/node-exporter:v0.18.1
+#    container_name: nodeexporter22
+#    volumes:
+#      - /proc:/host/proc:ro
+#      - /sys:/host/sys:ro
+#      - /:/rootfs:ro
+#    command:
+#      - '--path.procfs=/host/proc'
+#      - '--path.rootfs=/rootfs'
+#      - '--path.sysfs=/host/sys'
+#      - '--collector.filesystem.ignored-mount-points=^/(sys|proc|dev|host|etc)($$|/)'
+#    restart: unless-stopped
+#    ports:
+#      - 9122:9100
+#    networks:
+#      - monitor-net
+#    labels:
+#      org.label-schema.group: "monitoring"
+#
+#  nodeexporter23:
+#    image: prom/node-exporter:v0.18.1
+#    container_name: nodeexporter23
+#    volumes:
+#      - /proc:/host/proc:ro
+#      - /sys:/host/sys:ro
+#      - /:/rootfs:ro
+#    command:
+#      - '--path.procfs=/host/proc'
+#      - '--path.rootfs=/rootfs'
+#      - '--path.sysfs=/host/sys'
+#      - '--collector.filesystem.ignored-mount-points=^/(sys|proc|dev|host|etc)($$|/)'
+#    restart: unless-stopped
+#    ports:
+#      - 9123:9100
+#    networks:
+#      - monitor-net
+#    labels:
+#      org.label-schema.group: "monitoring"
+#
+#
+#  nodeexporter24:
+#    image: prom/node-exporter:v0.18.1
+#    container_name: nodeexporter24
+#    volumes:
+#      - /proc:/host/proc:ro
+#      - /sys:/host/sys:ro
+#      - /:/rootfs:ro
+#    command:
+#      - '--path.procfs=/host/proc'
+#      - '--path.rootfs=/rootfs'
+#      - '--path.sysfs=/host/sys'
+#      - '--collector.filesystem.ignored-mount-points=^/(sys|proc|dev|host|etc)($$|/)'
+#    restart: unless-stopped
+#    ports:
+#      - 9124:9100
+#    networks:
+#      - monitor-net
+#    labels:
+#      org.label-schema.group: "monitoring"
+#
+#  nodeexporter25:
+#    image: prom/node-exporter:v0.18.1
+#    container_name: nodeexporter25
+#    volumes:
+#      - /proc:/host/proc:ro
+#      - /sys:/host/sys:ro
+#      - /:/rootfs:ro
+#    command:
+#      - '--path.procfs=/host/proc'
+#      - '--path.rootfs=/rootfs'
+#      - '--path.sysfs=/host/sys'
+#      - '--collector.filesystem.ignored-mount-points=^/(sys|proc|dev|host|etc)($$|/)'
+#    restart: unless-stopped
+#    ports:
+#      - 9125:9100
+#    networks:
+#      - monitor-net
+#    labels:
+#      org.label-schema.group: "monitoring"
+#
+#  nodeexporter26:
+#    image: prom/node-exporter:v0.18.1
+#    container_name: nodeexporter26
+#    volumes:
+#      - /proc:/host/proc:ro
+#      - /sys:/host/sys:ro
+#      - /:/rootfs:ro
+#    command:
+#      - '--path.procfs=/host/proc'
+#      - '--path.rootfs=/rootfs'
+#      - '--path.sysfs=/host/sys'
+#      - '--collector.filesystem.ignored-mount-points=^/(sys|proc|dev|host|etc)($$|/)'
+#    restart: unless-stopped
+#    ports:
+#      - 9126:9100
+#    networks:
+#      - monitor-net
+#    labels:
+#      org.label-schema.group: "monitoring"
+#
+#
+#  nodeexporter27:
+#    image: prom/node-exporter:v0.18.1
+#    container_name: nodeexporter27
+#    volumes:
+#      - /proc:/host/proc:ro
+#      - /sys:/host/sys:ro
+#      - /:/rootfs:ro
+#    command:
+#      - '--path.procfs=/host/proc'
+#      - '--path.rootfs=/rootfs'
+#      - '--path.sysfs=/host/sys'
+#      - '--collector.filesystem.ignored-mount-points=^/(sys|proc|dev|host|etc)($$|/)'
+#    restart: unless-stopped
+#    ports:
+#      - 9127:9100
+#    networks:
+#      - monitor-net
+#    labels:
+#      org.label-schema.group: "monitoring"
+#
+#
+#  nodeexporter28:
+#    image: prom/node-exporter:v0.18.1
+#    container_name: nodeexporter28
+#    volumes:
+#      - /proc:/host/proc:ro
+#      - /sys:/host/sys:ro
+#      - /:/rootfs:ro
+#    command:
+#      - '--path.procfs=/host/proc'
+#      - '--path.rootfs=/rootfs'
+#      - '--path.sysfs=/host/sys'
+#      - '--collector.filesystem.ignored-mount-points=^/(sys|proc|dev|host|etc)($$|/)'
+#    restart: unless-stopped
+#    ports:
+#      - 9128:9100
+#    networks:
+#      - monitor-net
+#    labels:
+#      org.label-schema.group: "monitoring"
+#
+#
+#  nodeexporter29:
+#    image: prom/node-exporter:v0.18.1
+#    container_name: nodeexporter29
+#    volumes:
+#      - /proc:/host/proc:ro
+#      - /sys:/host/sys:ro
+#      - /:/rootfs:ro
+#    command:
+#      - '--path.procfs=/host/proc'
+#      - '--path.rootfs=/rootfs'
+#      - '--path.sysfs=/host/sys'
+#      - '--collector.filesystem.ignored-mount-points=^/(sys|proc|dev|host|etc)($$|/)'
+#    restart: unless-stopped
+#    ports:
+#      - 9129:9100
+#    networks:
+#      - monitor-net
+#    labels:
+#      org.label-schema.group: "monitoring"
+#
+#
+#  nodeexporter30:
+#    image: prom/node-exporter:v0.18.1
+#    container_name: nodeexporter30
+#    volumes:
+#      - /proc:/host/proc:ro
+#      - /sys:/host/sys:ro
+#      - /:/rootfs:ro
+#    command:
+#      - '--path.procfs=/host/proc'
+#      - '--path.rootfs=/rootfs'
+#      - '--path.sysfs=/host/sys'
+#      - '--collector.filesystem.ignored-mount-points=^/(sys|proc|dev|host|etc)($$|/)'
+#    restart: unless-stopped
+#    ports:
+#      - 9130:9100
+#    networks:
+#      - monitor-net
+#    labels:
+#      org.label-schema.group: "monitoring"
+#
+#  nodeexporter31:
+#    image: prom/node-exporter:v0.18.1
+#    container_name: nodeexporter31
+#    volumes:
+#      - /proc:/host/proc:ro
+#      - /sys:/host/sys:ro
+#      - /:/rootfs:ro
+#    command:
+#      - '--path.procfs=/host/proc'
+#      - '--path.rootfs=/rootfs'
+#      - '--path.sysfs=/host/sys'
+#      - '--collector.filesystem.ignored-mount-points=^/(sys|proc|dev|host|etc)($$|/)'
+#    restart: unless-stopped
+#    ports:
+#      - 9131:9100
+#    networks:
+#      - monitor-net
+#    labels:
+#      org.label-schema.group: "monitoring"
+#
+#
+#  nodeexporter32:
+#    image: prom/node-exporter:v0.18.1
+#    container_name: nodeexporter32
+#    volumes:
+#      - /proc:/host/proc:ro
+#      - /sys:/host/sys:ro
+#      - /:/rootfs:ro
+#    command:
+#      - '--path.procfs=/host/proc'
+#      - '--path.rootfs=/rootfs'
+#      - '--path.sysfs=/host/sys'
+#      - '--collector.filesystem.ignored-mount-points=^/(sys|proc|dev|host|etc)($$|/)'
+#    restart: unless-stopped
+#    ports:
+#      - 9132:9100
+#    networks:
+#      - monitor-net
+#    labels:
+#      org.label-schema.group: "monitoring"
+#
+#
+#  nodeexporter33:
+#    image: prom/node-exporter:v0.18.1
+#    container_name: nodeexporter33
+#    volumes:
+#      - /proc:/host/proc:ro
+#      - /sys:/host/sys:ro
+#      - /:/rootfs:ro
+#    command:
+#      - '--path.procfs=/host/proc'
+#      - '--path.rootfs=/rootfs'
+#      - '--path.sysfs=/host/sys'
+#      - '--collector.filesystem.ignored-mount-points=^/(sys|proc|dev|host|etc)($$|/)'
+#    restart: unless-stopped
+#    ports:
+#      - 9133:9100
+#    networks:
+#      - monitor-net
+#    labels:
+#      org.label-schema.group: "monitoring"
+#
+#  nodeexporter34:
+#    image: prom/node-exporter:v0.18.1
+#    container_name: nodeexporter34
+#    volumes:
+#      - /proc:/host/proc:ro
+#      - /sys:/host/sys:ro
+#      - /:/rootfs:ro
+#    command:
+#      - '--path.procfs=/host/proc'
+#      - '--path.rootfs=/rootfs'
+#      - '--path.sysfs=/host/sys'
+#      - '--collector.filesystem.ignored-mount-points=^/(sys|proc|dev|host|etc)($$|/)'
+#    restart: unless-stopped
+#    ports:
+#      - 9134:9100
+#    networks:
+#      - monitor-net
+#    labels:
+#      org.label-schema.group: "monitoring"
+#
+#  nodeexporter35:
+#    image: prom/node-exporter:v0.18.1
+#    container_name: nodeexporter35
+#    volumes:
+#      - /proc:/host/proc:ro
+#      - /sys:/host/sys:ro
+#      - /:/rootfs:ro
+#    command:
+#      - '--path.procfs=/host/proc'
+#      - '--path.rootfs=/rootfs'
+#      - '--path.sysfs=/host/sys'
+#      - '--collector.filesystem.ignored-mount-points=^/(sys|proc|dev|host|etc)($$|/)'
+#    restart: unless-stopped
+#    ports:
+#      - 9135:9100
+#    networks:
+#      - monitor-net
+#    labels:
+#      org.label-schema.group: "monitoring"
+#
+#
+#
+#  nodeexporter36:
+#    image: prom/node-exporter:v0.18.1
+#    container_name: nodeexporter36
+#    volumes:
+#      - /proc:/host/proc:ro
+#      - /sys:/host/sys:ro
+#      - /:/rootfs:ro
+#    command:
+#      - '--path.procfs=/host/proc'
+#      - '--path.rootfs=/rootfs'
+#      - '--path.sysfs=/host/sys'
+#      - '--collector.filesystem.ignored-mount-points=^/(sys|proc|dev|host|etc)($$|/)'
+#    restart: unless-stopped
+#    ports:
+#      - 9136:9100
+#    networks:
+#      - monitor-net
+#    labels:
+#      org.label-schema.group: "monitoring"
+#
+#
+#  nodeexporter37:
+#    image: prom/node-exporter:v0.18.1
+#    container_name: nodeexporter37
+#    volumes:
+#      - /proc:/host/proc:ro
+#      - /sys:/host/sys:ro
+#      - /:/rootfs:ro
+#    command:
+#      - '--path.procfs=/host/proc'
+#      - '--path.rootfs=/rootfs'
+#      - '--path.sysfs=/host/sys'
+#      - '--collector.filesystem.ignored-mount-points=^/(sys|proc|dev|host|etc)($$|/)'
+#    restart: unless-stopped
+#    ports:
+#      - 9137:9100
+#    networks:
+#      - monitor-net
+#    labels:
+#      org.label-schema.group: "monitoring"
+#
+#
+#  nodeexporter38:
+#    image: prom/node-exporter:v0.18.1
+#    container_name: nodeexporter38
+#    volumes:
+#      - /proc:/host/proc:ro
+#      - /sys:/host/sys:ro
+#      - /:/rootfs:ro
+#    command:
+#      - '--path.procfs=/host/proc'
+#      - '--path.rootfs=/rootfs'
+#      - '--path.sysfs=/host/sys'
+#      - '--collector.filesystem.ignored-mount-points=^/(sys|proc|dev|host|etc)($$|/)'
+#    restart: unless-stopped
+#    ports:
+#      - 9138:9100
+#    networks:
+#      - monitor-net
+#    labels:
+#      org.label-schema.group: "monitoring"
+#
+#
+#  nodeexporter39:
+#    image: prom/node-exporter:v0.18.1
+#    container_name: nodeexporter39
+#    volumes:
+#      - /proc:/host/proc:ro
+#      - /sys:/host/sys:ro
+#      - /:/rootfs:ro
+#    command:
+#      - '--path.procfs=/host/proc'
+#      - '--path.rootfs=/rootfs'
+#      - '--path.sysfs=/host/sys'
+#      - '--collector.filesystem.ignored-mount-points=^/(sys|proc|dev|host|etc)($$|/)'
+#    restart: unless-stopped
+#    ports:
+#      - 9139:9100
+#    networks:
+#      - monitor-net
+#    labels:
+#      org.label-schema.group: "monitoring"
+#
+#
+#  nodeexporter40:
+#    image: prom/node-exporter:v0.18.1
+#    container_name: nodeexporter40
+#    volumes:
+#      - /proc:/host/proc:ro
+#      - /sys:/host/sys:ro
+#      - /:/rootfs:ro
+#    command:
+#      - '--path.procfs=/host/proc'
+#      - '--path.rootfs=/rootfs'
+#      - '--path.sysfs=/host/sys'
+#      - '--collector.filesystem.ignored-mount-points=^/(sys|proc|dev|host|etc)($$|/)'
+#    restart: unless-stopped
+#    ports:
+#      - 9140:9100
+#    networks:
+#      - monitor-net
+#    labels:
+#      org.label-schema.group: "monitoring"
+#
+#
+#  nodeexporter41:
+#    image: prom/node-exporter:v0.18.1
+#    container_name: nodeexporter41
+#    volumes:
+#      - /proc:/host/proc:ro
+#      - /sys:/host/sys:ro
+#      - /:/rootfs:ro
+#    command:
+#      - '--path.procfs=/host/proc'
+#      - '--path.rootfs=/rootfs'
+#      - '--path.sysfs=/host/sys'
+#      - '--collector.filesystem.ignored-mount-points=^/(sys|proc|dev|host|etc)($$|/)'
+#    restart: unless-stopped
+#    ports:
+#      - 9141:9100
+#    networks:
+#      - monitor-net
+#    labels:
+#      org.label-schema.group: "monitoring"
+#
+#
+#  nodeexporter42:
+#    image: prom/node-exporter:v0.18.1
+#    container_name: nodeexporter42
+#    volumes:
+#      - /proc:/host/proc:ro
+#      - /sys:/host/sys:ro
+#      - /:/rootfs:ro
+#    command:
+#      - '--path.procfs=/host/proc'
+#      - '--path.rootfs=/rootfs'
+#      - '--path.sysfs=/host/sys'
+#      - '--collector.filesystem.ignored-mount-points=^/(sys|proc|dev|host|etc)($$|/)'
+#    restart: unless-stopped
+#    ports:
+#      - 9142:9100
+#    networks:
+#      - monitor-net
+#    labels:
+#      org.label-schema.group: "monitoring"
+
 
   cadvisor:
     image: gcr.io/google-containers/cadvisor:v0.34.0
@@ -118,7 +963,7 @@ services:
     container_name: caddy
     ports:
       - "3000:3000"
-      - "9090:9090"
+        # - "9090:9090"
       - "9093:9093"
       - "9091:9091"
     volumes:

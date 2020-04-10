@@ -1,0 +1,263 @@
+networks:
+  monitor-net:
+    driver: bridge
+services:
+  alertmanager:
+    command:
+    - --config.file=/etc/alertmanager/config.yml
+    - --storage.path=/alertmanager
+    container_name: alertmanager
+    expose:
+    - 9093
+    image: prom/alertmanager:v0.20.0
+    labels:
+      org.label-schema.group: monitoring
+    networks:
+    - monitor-net
+    restart: unless-stopped
+    volumes:
+    - ./alertmanager:/etc/alertmanager
+  caddy:
+    container_name: caddy
+    environment:
+    - ADMIN_USER=${ADMIN_USER:-admin}
+    - ADMIN_PASSWORD=${ADMIN_PASSWORD:-admin}
+    image: stefanprodan/caddy
+    labels:
+      org.label-schema.group: monitoring
+    networks:
+    - monitor-net
+    ports:
+    - 3000:3000
+    - 9093:9093
+    - 9091:9091
+    restart: unless-stopped
+    volumes:
+    - ./caddy:/etc/caddy
+  cadvisor:
+    container_name: cadvisor
+    expose:
+    - 8080
+    image: gcr.io/google-containers/cadvisor:v0.34.0
+    labels:
+      org.label-schema.group: monitoring
+    networks:
+    - monitor-net
+    restart: unless-stopped
+    volumes:
+    - /:/rootfs:ro
+    - /var/run:/var/run:rw
+    - /sys:/sys:ro
+    - /var/lib/docker:/var/lib/docker:ro
+  grafana:
+    container_name: grafana
+    environment:
+    - GF_SECURITY_ADMIN_USER=${ADMIN_USER:-admin}
+    - GF_SECURITY_ADMIN_PASSWORD=${ADMIN_PASSWORD:-admin}
+    - GF_USERS_ALLOW_SIGN_UP=false
+    expose:
+    - 3000
+    image: grafana/grafana:6.6.2
+    labels:
+      org.label-schema.group: monitoring
+    networks:
+    - monitor-net
+    restart: unless-stopped
+    volumes:
+    - grafana_data:/var/lib/grafana
+    - ./grafana/provisioning:/etc/grafana/provisioning
+  nodeexporter:
+    command:
+    - --path.procfs=/host/proc
+    - --path.rootfs=/rootfs
+    - --path.sysfs=/host/sys
+    - --collector.filesystem.ignored-mount-points=^/(sys|proc|dev|host|etc)($$|/)
+    container_name: nodeexporter
+    image: prom/node-exporter:v0.18.1
+    labels:
+      org.label-schema.group: monitoring
+    networks:
+    - monitor-net
+    ports:
+    - 9100:9100
+    restart: unless-stopped
+    volumes:
+    - /proc:/host/proc:ro
+    - /sys:/host/sys:ro
+    - /:/rootfs:ro
+  nodeexporter1:
+    command: &id001
+    - --path.procfs=/host/proc
+    - --path.rootfs=/rootfs
+    - --path.sysfs=/host/sys
+    - --collector.filesystem.ignored-mount-points=^/(sys|proc|dev|host|etc)($$|/)
+    container_name: nodeexporter1
+    image: prom/node-exporter:v0.18.1
+    labels: &id002
+      org.label-schema.group: monitoring
+      service_name: nodeexporter13
+    networks: &id003
+    - monitor-net
+    ports:
+    - 9101:9100
+    restart: unless-stopped
+    volumes: &id004
+    - /proc:/host/proc:ro
+    - /sys:/host/sys:ro
+    - /:/rootfs:ro
+  nodeexporter10:
+    command: *id001
+    container_name: nodeexporter10
+    image: prom/node-exporter:v0.18.1
+    labels: *id002
+    networks: *id003
+    ports:
+    - 9110:9100
+    restart: unless-stopped
+    volumes: *id004
+  nodeexporter11:
+    command: *id001
+    container_name: nodeexporter11
+    image: prom/node-exporter:v0.18.1
+    labels: *id002
+    networks: *id003
+    ports:
+    - 9111:9100
+    restart: unless-stopped
+    volumes: *id004
+  nodeexporter12:
+    command: *id001
+    container_name: nodeexporter12
+    image: prom/node-exporter:v0.18.1
+    labels: *id002
+    networks: *id003
+    ports:
+    - 9112:9100
+    restart: unless-stopped
+    volumes: *id004
+  nodeexporter13:
+    command: *id001
+    container_name: nodeexporter13
+    image: prom/node-exporter:v0.18.1
+    labels: *id002
+    networks: *id003
+    ports:
+    - 9113:9100
+    restart: unless-stopped
+    volumes: *id004
+  nodeexporter2:
+    command: *id001
+    container_name: nodeexporter2
+    image: prom/node-exporter:v0.18.1
+    labels: *id002
+    networks: *id003
+    ports:
+    - 9102:9100
+    restart: unless-stopped
+    volumes: *id004
+  nodeexporter3:
+    command: *id001
+    container_name: nodeexporter3
+    image: prom/node-exporter:v0.18.1
+    labels: *id002
+    networks: *id003
+    ports:
+    - 9103:9100
+    restart: unless-stopped
+    volumes: *id004
+  nodeexporter4:
+    command: *id001
+    container_name: nodeexporter4
+    image: prom/node-exporter:v0.18.1
+    labels: *id002
+    networks: *id003
+    ports:
+    - 9104:9100
+    restart: unless-stopped
+    volumes: *id004
+  nodeexporter5:
+    command: *id001
+    container_name: nodeexporter5
+    image: prom/node-exporter:v0.18.1
+    labels: *id002
+    networks: *id003
+    ports:
+    - 9105:9100
+    restart: unless-stopped
+    volumes: *id004
+  nodeexporter6:
+    command: *id001
+    container_name: nodeexporter6
+    image: prom/node-exporter:v0.18.1
+    labels: *id002
+    networks: *id003
+    ports:
+    - 9106:9100
+    restart: unless-stopped
+    volumes: *id004
+  nodeexporter7:
+    command: *id001
+    container_name: nodeexporter7
+    image: prom/node-exporter:v0.18.1
+    labels: *id002
+    networks: *id003
+    ports:
+    - 9107:9100
+    restart: unless-stopped
+    volumes: *id004
+  nodeexporter8:
+    command: *id001
+    container_name: nodeexporter8
+    image: prom/node-exporter:v0.18.1
+    labels: *id002
+    networks: *id003
+    ports:
+    - 9108:9100
+    restart: unless-stopped
+    volumes: *id004
+  nodeexporter9:
+    command: *id001
+    container_name: nodeexporter9
+    image: prom/node-exporter:v0.18.1
+    labels: *id002
+    networks: *id003
+    ports:
+    - 9109:9100
+    restart: unless-stopped
+    volumes: *id004
+  prometheus:
+    command:
+    - --config.file=/etc/prometheus/prometheus.yml
+    - --storage.tsdb.path=/prometheus
+    - --web.console.libraries=/etc/prometheus/console_libraries
+    - --web.console.templates=/etc/prometheus/consoles
+    - --storage.tsdb.retention.time=200h
+    - --web.enable-lifecycle
+    container_name: prometheus
+    expose:
+    - 9090
+    image: prom/prometheus:v2.16.0
+    labels:
+      org.label-schema.group: monitoring
+    networks:
+    - monitor-net
+    ports:
+    - 9090:9090
+    restart: unless-stopped
+    volumes:
+    - ./prometheus:/etc/prometheus
+    - prometheus_data:/prometheus
+  pushgateway:
+    container_name: pushgateway
+    expose:
+    - 9091
+    image: prom/pushgateway:v1.1.0
+    labels:
+      org.label-schema.group: monitoring
+    networks:
+    - monitor-net
+    restart: unless-stopped
+version: '2.1'
+volumes:
+  grafana_data: {}
+  prometheus_data: {}
