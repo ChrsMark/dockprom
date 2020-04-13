@@ -27,7 +27,6 @@ with open('docker-compose.yml') as file:
         'command': ['--path.procfs=/host/proc', '--path.rootfs=/rootfs', '--path.sysfs=/host/sys', '--collector.filesystem.ignored-mount-points=^/(sys|proc|dev|host|etc)($$|/)'],
         'restart': 'unless-stopped',
         'ports': [],
-        'networks': ['monitor-net'],
         'labels': {'org.label-schema.group': 'monitoring'}
     }
 
